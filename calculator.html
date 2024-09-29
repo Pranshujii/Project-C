@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cubic Yard Calculator</title>
+  <link rel="stylesheet" href="calculator.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="calculator-heading">
+      <h1>Cubic Yard Calculator</h1>
+    </div>
+  <div class="calculator">
+    
+
+    <input type="number" id="length" placeholder="Length (feet)">
+    <input type="number" id="width" placeholder="Width (feet)">
+    <input type="number" id="depth" placeholder="Depth (inches)">
+
+    <button onclick="calculateCubicYards()">Submit</button>
+
+    <div class="result">
+      Gravel Needed: <span id="result"></span> cubic yards
+    </div>
+  </div>
+
+  <script>
+    function calculateCubicYards() {
+      const length = parseFloat(document.getElementById('length').value);
+      const width = parseFloat(document.getElementById('width').value);
+      const depth = parseFloat(document.getElementById('depth').value) / 12; // Convert inches to feet
+
+      const cubicYards = (length * width * depth) / 27; // 1 cubic yard = 27 cubic feet
+
+      document.getElementById('result').textContent = cubicYards.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
